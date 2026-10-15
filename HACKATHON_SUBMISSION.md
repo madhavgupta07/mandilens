@@ -3,7 +3,7 @@
 **Project name:** MandiLens  
 **Challenge:** Week 2 — Side Hustle  
 **Submission date:** October 2026  
-**Repository:** (link to this repository)  
+**Repository:** https://github.com/madhavgupta07/mandilens  
 **Live demo:** (link to deployed app on Render — optional, but welcome)
 
 ## What MandiLens is
