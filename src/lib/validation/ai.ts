@@ -3,7 +3,7 @@ import { objectIdSchema } from "./common";
 
 export const chatRequestSchema = z.object({
   message: z.string().min(1, "Ask a question.").max(2000),
-  conversationId: objectIdSchema.optional(),
+  conversationId: objectIdSchema.nullable().optional(),
   history: z
     .array(
       z.object({

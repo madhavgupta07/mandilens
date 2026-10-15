@@ -1,4 +1,5 @@
-import { Schema, model, models, type Model, type Types } from "mongoose";
+import mongoose, { Schema, model, type Model, type Types } from "mongoose";
+const models = mongoose.models;
 import {
   AGMARKNET_SOURCE_KEY,
   DEMO_SOURCE_KEY,

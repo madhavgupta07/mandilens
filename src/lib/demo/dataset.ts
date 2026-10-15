@@ -124,7 +124,7 @@ export function generateDemoPrices(options: GenerateDemoOptions = {}): Normalize
           maxPrice: max,
           modalPrice: modal,
           priceDate,
-          recordType: "historical_price",
+          recordType: i === 0 ? "reported_market_price" : "historical_price",
           dedupeKey: buildDedupeKey([
             DEMO_SOURCE_KEY,
             slugify(market.name),

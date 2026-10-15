@@ -39,26 +39,23 @@ export const GET = withApi<{ params: Promise<{ slug: string }> }>(
     ]);
 
     const marketMap = new Map<string, { name: string; slug: string; district: string; state: string }>();
-    if (!marketSlug && (district || state)) {
-      const { listMarkets } = await import("@/lib/services/catalog");
-      const { items } = await listMarkets({
-        district,
-        state,
-        mode,
-        limit: 100,
+    const { Market } = await import("@/lib/db/models");
+    const marketDocs = await Market.find({
+      _id: { $in: latest.map((row) => row.marketId) },
+    })
+      .select("name slug district state")
+      .lean();
+    for (const m of marketDocs) {
+      marketMap.set(String(m._id), {
+        name: m.name,
+        slug: m.slug,
+        district: m.district,
+        state: m.state,
       });
-      for (const market of items) {
-        marketMap.set(String(market._id), {
-          name: market.name,
-          slug: market.slug,
-          district: market.district,
-          state: market.state,
-        });
-      }
     }
 
     const filteredLatest = latest
-      .filter((row) => marketMap.size === 0 || marketMap.has(row.marketId))
+      .filter((row) => (!district && !state) || (row.marketId && marketMap.has(row.marketId)))
       .map((row) => ({ ...row, market: marketMap.get(row.marketId) ?? null }));
 
     const history =
