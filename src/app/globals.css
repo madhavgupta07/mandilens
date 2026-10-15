@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/*
+  MandiLens design tokens — a calm, agricultural palette:
+  forest green for trust, harvest amber for emphasis, parchment for paper.
+*/
+@theme {
+  --color-background: #f6f5ef;
+  --color-foreground: #18241d;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #18241d;
+
+  --color-muted: #eceae1;
+  --color-muted-foreground: #5b6b60;
+
+  --color-border: #dcd8cb;
+  --color-input: #d3cfc0;
+  --color-ring: #1f6f4a;
+
+  --color-primary: #1f6f4a;
+  --color-primary-foreground: #f2fbf5;
+  --color-primary-muted: #e3f1e8;
+
+  --color-secondary: #ede9dc;
+  --color-secondary-foreground: #2a3a30;
+
+  --color-accent: #d98a00;
+  --color-accent-foreground: #2b1c00;
+  --color-accent-muted: #fbf1dc;
+
+  --color-destructive: #b42318;
+  --color-destructive-foreground: #fef3f2;
+
+  --color-success: #1f7a4d;
+  --color-warning: #b25e09;
+  --color-info: #1d4ed8;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 80rem;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .surface-grid {
+    background-image:
+      linear-gradient(to right, rgba(31, 111, 74, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31, 111, 74, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}

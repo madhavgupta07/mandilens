@@ -1,0 +1,8 @@
+allowBuilds:
+  esbuild: true
+  mongodb-memory-server: true
+  unrs-resolver: true
+overrides:
+  vite: 7.3.7
+minimumReleaseAgeExclude:
+  - lucide-react@1.57.0
